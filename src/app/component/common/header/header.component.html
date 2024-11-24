@@ -1,0 +1,6 @@
+<div class="p-2 bg-primary text-white d-flex flex-row justify-content-between">
+    <fa-icon *ngIf='title != "Dashboard"' [routerLink]="['/home']" [routerLinkActive]="'active'" style="font-size: 2rem;" [icon]="backArrow" (click)="back()"></fa-icon>
+    <div *ngIf='title === "Dashboard"'></div>
+    <h4>{{title}}</h4>
+    <div></div>
+</div>

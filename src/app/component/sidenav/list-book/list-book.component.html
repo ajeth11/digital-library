@@ -1,0 +1,23 @@
+<div class="text-center">
+    <div style="margin-top: 2rem;">
+        <app-header [title]="isView ? 'View Book' : 'Delete Book'"></app-header>
+    </div>
+    <div style="margin-top: 2rem;" *ngIf="isView">
+        <ng-container *ngTemplateOutlet="viewObj"></ng-container>
+    </div>
+    <div style="margin-top: 2rem;" *ngIf="!isView">
+        <ng-container *ngTemplateOutlet="deleteObj"></ng-container>
+    </div>
+</div>
+
+<ng-template #deleteObj>
+    <app-table [header]="['S.No', 'Book Name', 'Author', 'Publication', 'Qty', 'Price', 'Branch', 'Action']"
+        [body]="list"
+        [bodyKey]="['index','name', 'auth', 'public', 'qty', 'price', 'branch', 'action-delete']" (action)="remove($event)"></app-table>
+</ng-template>
+
+<ng-template #viewObj>
+    <app-table [header]="['S.No', 'Book Name', 'Author', 'Publication', 'Qty', 'Price', 'Branch', 'Details']"
+        [body]="list"
+        [bodyKey]="['index','name', 'auth', 'public', 'qty', 'price', 'branch', 'details']"></app-table>
+</ng-template>

@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-primary">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-speedometer2"></i> <span
+                                class="ms-1 d-none d-sm-inline text-white">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <fa-icon style="font-size: 1rem; color: white; margin-right: 0.5rem;" [icon]="book"></fa-icon> <span
+                                class="ms-1 d-none d-sm-inline font-weight-bold text-white">Book</span>
+                        </a>
+                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a [routerLink]="['/home/add-book']" [routerLinkActive]="'active'"
+                                    class="nav-link px-1 text-white"><fa-icon style="font-size: 1rem; color: white; margin-right: 0.5rem;" [icon]="addBook"></fa-icon><span
+                                        class="d-none d-sm-inline">Add</span>
+                                    Book </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="['/home/view-book']" [routerLinkActive]="'active'"
+                                    class="nav-link px-1 text-white"><fa-icon style="font-size: 1rem; color: white; margin-right: 0.5rem;" [icon]="viewBook"></fa-icon> <span
+                                        class="d-none d-sm-inline">View</span> Book </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="['/home/delete-book']" [routerLinkActive]="'active'"
+                                    class="nav-link px-1 text-white"><fa-icon style="font-size: 1rem; color: white; margin-right: 0.5rem;" [icon]="deleteBook"></fa-icon> <span
+                                        class="d-none d-sm-inline">Delete</span> Book </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col py-3">
+            <app-header [title]="'Dashboard'"></app-header>
+            <div class="col row">
+                <div class="col-6">
+                    <p-chart type="bar" [data]="data" [options]="options" />
+                </div>
+                <div class="col-6">
+                    <p-chart type="pie" [data]="circulData" [options]="options" />
+                </div>
+            </div>
+            <div class="col row">
+                <h6>Issued Book Summary</h6>
+                <app-table [header]="['ISBN', 'Book Name', 'Author', 'Roll No', 'Name', 'Issued On']"></app-table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<router-outlet />

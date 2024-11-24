@@ -1,0 +1,122 @@
+<div class="text-center">
+    <div style="margin-top: 2rem;">
+        <app-header [title]="'Add Book'"></app-header>
+    </div>
+    <div class="container">
+        <div class="col p-2">
+            <form [formGroup]="bookForm">
+                <div class="row p-3">
+                    <div class="p-3">
+                        <label class="col-4 mx-2 label-colour">ISBN Number</label>
+                        <input type="number" class="col-5" formControlName="isbn" />
+                        <div class="error" *ngIf="(bookForm.get('isbn')?.touched) && bookForm.get('isbn')?.errors">
+                            <small *ngIf="bookForm.get('isbn')?.errors?.['required']">ISBN Number is
+                                required!</small>
+                            <small *ngIf="bookForm.get('isbn')?.errors?.['minLength']">Value must be at
+                                least {{bookForm.get('isbn')?.errors?.['minlength'].requiredLength}} characters!</small>
+                            <small *ngIf="bookForm.get('isbn')?.errors?.['maxlength']">Maximum value is
+                                {{bookForm.get('isbn')?.errors?.['maxlength'].requiredLength}} characters!</small>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <label class="col-4 mx-2 label-colour">Name</label>
+                        <input class="col-5" formControlName="name" />
+                        <div class="error" *ngIf="(bookForm.get('name')?.touched) && bookForm.get('name')?.errors">
+                            <small *ngIf="bookForm.get('name')?.errors?.['required']">Name is
+                                required!</small>
+                            <small *ngIf="bookForm.get('name')?.errors?.['minlength']">Value must be at
+                                least {{bookForm.get('name')?.errors?.['minlength'].requiredLength}} characters!</small>
+                            <small *ngIf="bookForm.get('name')?.errors?.['maxlength']">Maximum value is
+                                {{bookForm.get('name')?.errors?.['maxlength'].requiredLength}} characters!</small>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <label class="col-4 mx-2 label-colour">Author</label>
+                        <input class="col-5" formControlName="auth" />
+                        <div class="error" *ngIf="(bookForm.get('auth')?.touched) && bookForm.get('auth')?.errors">
+                            <small *ngIf="bookForm.get('auth')?.errors?.['required']">Author is
+                                required!</small>
+                            <small *ngIf="bookForm.get('auth')?.errors?.['minlength']">Value must be at
+                                least {{bookForm.get('auth')?.errors?.['minlength'].requiredLength}} characters!</small>
+                            <small *ngIf="bookForm.get('auth')?.errors?.['maxlength']">Maximum value is
+                                {{bookForm.get('auth')?.errors?.['maxlength'].requiredLength}} characters!</small>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <label class="col-4 mx-2 label-colour">Publication</label>
+                        <input class="col-5" formControlName="public" />
+                        <div class="error" *ngIf="(bookForm.get('public')?.touched) && bookForm.get('public')?.errors">
+                            <small *ngIf="bookForm.get('public')?.errors?.['required']">Publication is
+                                required!</small>
+                            <small *ngIf="bookForm.get('public')?.errors?.['minlength']">Value must be at
+                                least {{bookForm.get('public')?.errors?.['minlength'].requiredLength}}
+                                characters!</small>
+                            <small *ngIf="bookForm.get('public')?.errors?.['maxlength']">Maximum value is
+                                {{bookForm.get('public')?.errors?.['maxlength'].requiredLength}} characters!</small>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <label class="col-4 mx-2 label-colour">Details</label>
+                        <textarea class="col-5" formControlName="details"> </textarea>
+                        <div class="error"
+                            *ngIf="(bookForm.get('details')?.touched) && bookForm.get('details')?.errors">
+                            <small *ngIf="bookForm.get('details')?.errors?.['required']">Details Number is
+                                required!</small>
+                            <small *ngIf="bookForm.get('details')?.errors?.['minlength']">Value must be at
+                                least {{bookForm.get('details')?.errors?.['minlength'].requiredLength}}
+                                characters!</small>
+                            <small *ngIf="bookForm.get('details')?.errors?.['maxlength']">Maximum value is
+                                {{bookForm.get('details')?.errors?.['maxlength'].requiredLength}} characters!</small>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <label class="col-4 mx-2 label-colour">Qty</label>
+                        <input class="col-5" formControlName="qty" />
+                        <div class="error" *ngIf="(bookForm.get('qty')?.touched) && bookForm.get('qty')?.errors">
+                            <small *ngIf="bookForm.get('qty')?.errors?.['required']">QTY is
+                                required!</small>
+                            <small *ngIf="bookForm.get('qty')?.errors?.['minlength']">Value must be at
+                                least {{bookForm.get('qty')?.errors?.['minlength'].requiredLength}} characters!</small>
+                            <small *ngIf="bookForm.get('qty')?.errors?.['maxlength']">Maximum value is
+                                {{bookForm.get('qty')?.errors?.['maxlength'].requiredLength}} characters!</small>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <label class="col-4 mx-2 label-colour">Price</label>
+                        <input class="col-5" formControlName="price" />
+                        <div class="error" *ngIf="(bookForm.get('price')?.touched) && bookForm.get('price')?.errors">
+                            <small *ngIf="bookForm.get('price')?.errors?.['required']">Price is
+                                required!</small>
+                            <small *ngIf="bookForm.get('price')?.errors?.['minlength']">Value must be at
+                                least {{bookForm.get('price')?.errors?.['minlength'].requiredLength}}
+                                characters!</small>
+                            <small *ngIf="bookForm.get('price')?.errors?.['maxlength']">Maximum value is
+                                {{bookForm.get('price')?.errors?.['maxlength'].requiredLength}} characters!</small>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <label class="col-4 mx-2 label-colour">Branch</label>
+                        <select class="col-5" formControlName="branch">
+                            <option value="IT">IT</option>
+                            <option value="Civil">Civil</option>
+                            <option value="Machanical">Machanical</option>
+                        </select>
+                        <div class="error" *ngIf="(bookForm.get('branch')?.touched) && bookForm.get('branch')?.errors">
+                            <small *ngIf="bookForm.get('branch')?.errors?.['required']">Branch is
+                                required!</small>
+                            <small *ngIf="bookForm.get('branch')?.errors?.['minlength']">Value must be at
+                                least {{bookForm.get('branch')?.errors?.['minlength'].requiredLength}}
+                                characters!</small>
+                            <small *ngIf="bookForm.get('branch')?.errors?.['maxlength']">Maximum value is
+                                {{bookForm.get('branch')?.errors?.['maxlength'].requiredLength}} characters!</small>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <label class="col-4 mx-2"></label>
+                        <button class="col-5 btn btn-primary" (click)="save()">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
