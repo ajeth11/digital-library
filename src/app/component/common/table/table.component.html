@@ -8,7 +8,7 @@
     </thead>
     <tbody *ngFor="let data of body; let i = index">
         <tr [ngClass]=" (i+1)%2 != 0 ? 'table-success' : ''">
-            <ng-container *ngFor="let key of bodyKey; let i = index">
+            <ng-container *ngFor="let key of bodyKey">
                 <th *ngIf="key === 'index'" scope="row">{{i+1}}</th>
                 <td *ngIf="key != 'index' && key != 'action-delete'">{{data[key]}}</td>
                 <td *ngIf="key === 'action-delete'" (click)="remove(data)"><fa-icon [icon]="delete"></fa-icon></td>
